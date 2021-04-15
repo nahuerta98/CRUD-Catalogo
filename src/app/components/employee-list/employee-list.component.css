@@ -1,0 +1,15 @@
+.container, table{
+    margin: 0;
+    padding: 0;
+}
+.row, .col{
+    margin: 0;
+    padding: 0;
+}
+.fas {
+    color: white;
+}
+.table{
+    margin-top: 0.5rem;
+    text-align: center;
+}

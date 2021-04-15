@@ -1,0 +1,32 @@
+<div class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand"> <i class="far fa-address-book"></i> Cátalogo </a>
+  <ul class="nav">
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Acciones
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" routerLink='/Empleado/nuevo'> Nuevo Empleado </a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" routerLink='/Oficina/nuevo'>Nueva Oficina</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" routerLink='/Ciudad/nuevo'>Nueva Ciudad</a>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink='/listado-Empleados'> Empleados </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink='/listado-Oficinas'> Oficinas </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink='/listado-Ciudades'> Ciudades </a>
+    </li>
+    
+  </ul>
+
+</div>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

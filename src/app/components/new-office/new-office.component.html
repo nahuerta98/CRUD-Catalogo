@@ -1,0 +1,70 @@
+<form (ngSubmit)="guardar(f)" #f="ngForm">
+    <h2>Nuevas Oficinas <i class="fas fa-building"></i> </h2>
+    <hr>
+
+    <!-- <label> Firebase ID </label>
+    <input type="text" class="form-control" placeholder="Firebase ID" disabled="disable" [(ngModel)]="office.id" name="id" >
+    <small class="form-text text-muted"> Este campo es autogenerado.</small>  -->
+
+    <div class="row">
+        <div class="col">
+            <!-- Nombre Oficina -->
+            <div class="form-group">
+                <label> Oficinas: </label>
+                <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="office.oficina" name="oficina"
+                    #oficina="ngModel" [class.is-invalid]="oficina.invalid && oficina.touched" maxlength="40" required>
+                <ng-container>
+                    <small *ngIf="oficina.invalid && oficina.touched" class="form-text text-danger"> Este campo es
+                        requerido. </small>
+                </ng-container>
+            </div>
+        </div>
+        <div class="col">
+            <!-- Télefono -->
+            <div class="form-group">
+                <label> Télefono: </label>
+                <input type="number" class="form-control" placeholder="999-999-9999" [(ngModel)]="office.telefono"
+                    name="telefono" #telefono="ngModel" [class.is-invalid]="telefono.invalid && telefono.touched"
+                    maxlength="10" required>
+                <ng-container>
+                    <small *ngIf="telefono.invalid && telefono.touched" class="form-text text-danger"> Este campo es
+                        requerido. </small>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <!-- Dirección -->
+    <div class="form-group">
+        <label> Dirección: </label>
+        <input type="text" class="form-control" placeholder="Dirección" [(ngModel)]="office.direccion" name="direccion"
+            #direccion="ngModel" [class.is-invalid]="direccion.invalid && direccion.touched" maxlength="80" required>
+        <ng-container>
+            <small *ngIf="direccion.invalid && direccion.touched" class="form-text text-danger"> Este campo es
+                requerido. </small>
+        </ng-container>
+    </div>
+
+    <!-- Ciudad -->
+    <div class="form-group">
+        <label> Ciudad: </label>
+        <select class="form-control" [(ngModel)]="office.ciudad" name="ciudad" #ciudad="ngModel"
+            [class.is-invalid]="ciudad.invalid && ciudad.touched" required>
+            <option>- Seleccione la ciudad en donde se ubican las oficinas -</option>
+            <option *ngFor="let city of cities"> {{city.ciudad}} </option>
+        </select>
+        <ng-container>
+            <small *ngIf="ciudad.invalid && ciudad.touched" class="form-text text-danger"> Es necesario seleccionar una ciudad. </small>
+        </ng-container>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-secondary btn-block" routerLink='/listado-Oficinas'> Regresar
+            </button>
+        </div>
+        <div class="col">
+            <button type="submit" [disabled]="!f.valid" class="btn btn-success btn-block"> Guardar </button>
+        </div>
+    </div>
+
+</form>

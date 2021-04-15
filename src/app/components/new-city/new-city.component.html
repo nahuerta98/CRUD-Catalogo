@@ -1,0 +1,32 @@
+<form (ngSubmit)="guardar(f)" #f="ngForm">
+    <h2>Nueva Ciudad <i class="fas fa-city"></i> </h2>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <!-- ID Firebase -->
+            <label> Clave de Registro Ciudad: </label>
+            <input type="text" class="form-control" placeholder="Clave de Registro Ciudad" disabled="disable" [(ngModel)]="city.id"
+                name="id">
+            <small class="form-text text-muted"> Este campo es autogenerado.</small>
+        </div>
+        <div class="col">
+            <!-- Ciudad -->
+            <div class="form-group">
+                <label> Ciudad: </label>
+                <input type="text" class="form-control" placeholder="Ciudad" [(ngModel)]="city.ciudad" name="ciudad" #ciudad="ngModel" [class.is-invalid]="ciudad.invalid && ciudad.touched" maxlength="40" required>
+                    <ng-container>
+                    <small *ngIf="ciudad.invalid && ciudad.touched" class="form-text text-danger"> Este campo es requerido. </small>
+                    </ng-container>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-secondary btn-block" routerLink='/listado-Ciudades'> Regresar
+            </button>
+            </div>
+            <div class="col">
+                <button type="submit" [disabled]="!f.valid" class="btn btn-success btn-block"> Guardar </button>
+        </div>
+    </div>
+</form>
